@@ -6,10 +6,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 public class InterviewDemo1 {
     public static void main(String[] args) throws ParseException {
@@ -29,7 +26,7 @@ public class InterviewDemo1 {
         list.add(new employee(103,"Adith", doj5, 20000.0));
 
         employee emp=  list.stream()
-                .max((a,b)-> Double.compare(a.getSalary(),b.getSalary())).get();
+                .max(Comparator.comparingDouble(employee::getSalary)).get();
 
         System.out.println(emp);
     }
